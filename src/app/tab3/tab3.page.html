@@ -1,17 +1,110 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Mis Rutinas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- RUTINA DE PECHO -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pecho</ion-card-title>
+      <ion-fab-button id="boton" color="danger"> 
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list *ngFor="let ejercicios of rutinaPecho">
+        <ion-item>
+          <ion-label>{{ejercicios.nombre}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <!-- RUTINA DE ESPALDA -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Espalda</ion-card-title>
+      <ion-fab-button id="boton" color="danger"> 
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list *ngFor="let ejercicios of rutinaEspalda">
+        <ion-item>
+          <ion-label>{{ejercicios.nombre}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <!-- RUTINA DE PIERNAS -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Piernas</ion-card-title>
+      <ion-fab-button id="boton" color="danger"> 
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list *ngFor="let ejercicios of rutinaPiernas">
+        <ion-item>
+          <ion-label>{{ejercicios.nombre}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="center">
+    <ion-fab-button id="open-modal-rutinas"> 
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-modal trigger="open-modal-rutinas">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancelar</ion-button>
+          </ion-buttons>
+          <ion-title>Nueva</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input
+            label="Ingrese el nombre"
+            labelPlacement="stacked"
+            type="text"
+            placeholder="Nombre"
+          ></ion-input>
+        </ion-item>
+        <ion-list>
+          <ion-item>
+            <ion-select aria-label="Fruit" placeholder="Seleccione los ejercicios" [multiple]="true">
+              <ion-select-option value="Press de banca">Press de banca</ion-select-option>
+              <ion-select-option value="Sentadilla">Sentadilla</ion-select-option>
+              <ion-select-option value="Jalon al pecho">Jalon al pecho</ion-select-option>
+              <ion-select-option value="Vuelos laterales">Vuelos laterales</ion-select-option>
+              <ion-select-option value="Curl predicador">Curl predicador</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-toast
+    [isOpen]="isToastOpen"
+    position="top"
+    message="Rutina creada exitosamente"
+    [duration]="4000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
 </ion-content>
