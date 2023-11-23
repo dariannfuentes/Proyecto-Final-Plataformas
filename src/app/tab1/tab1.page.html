@@ -1,17 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Inicio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="button">
+    <ion-button color="success" shape="round" routerLink="/tabs/tab3">Comenzar</ion-button>
+  </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div id="cardd">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Beneficios de ir al gimnasio</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>-Mejora la salud cardio vascular</p>
+        <p>-Control de peso</p>
+        <p>-Fortalecimiento muscular</p>
+        <p>-Mejora de la salud mental</p>
+        <p>-Mejora la autoestima y confianza</p>
+        <p>-Mejor calidad de sueño</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div id="cardd">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Beneficios de la app</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>-Podras crear ejercicios y definirlos a tu conveniencia</p>
+        <p>-Podras crear rutinas en base a tus ejercicios ya creados</p>
+        <p>-Podras llevar un seguimiento de tus mediciones</p>
+        <p>-Ayuda a los principiantes a tener una experiencia mas amena</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
